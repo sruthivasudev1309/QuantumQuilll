@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>QuantumQuilll - About Us</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -20,7 +20,6 @@
             --darker: #000000;
             --light: #f8fafc;
             --gray: #9ca3af;
-            --card-bg: #1a1f3a;
         }
 
         body {
@@ -86,21 +85,6 @@
             color: var(--primary);
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
         .mobile-toggle {
             display: none;
             font-size: 1.5rem;
@@ -108,16 +92,76 @@
             color: #ffffff;
         }
 
-        /* Sections */
-        section {
-            padding: 5rem 2rem;
-            background: var(--darker);
+        /* Hero Section */
+        .hero-about {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            background: radial-gradient(ellipse at top, #1a1f3a 0%, #000000 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23a78bfa" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            animation: moveGrid 20s linear infinite;
+        }
+
+        @keyframes moveGrid {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .hero-content-about {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
             position: relative;
             z-index: 1;
         }
 
-        section.alt-bg {
-            background: linear-gradient(180deg, #0a0e27 0%, #000000 100%);
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .hero-image {
+            background: linear-gradient(135deg, rgba(26, 31, 58, 0.8), rgba(42, 40, 80, 0.8));
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(167, 139, 250, 0.2);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Who We Are Section */
+        .who-we-are {
+            padding: 5rem 2rem;
+            background: var(--darker);
         }
 
         .container {
@@ -125,11 +169,38 @@
             margin: 0 auto;
         }
 
+        .content-card {
+            background: linear-gradient(135deg, rgba(26, 31, 58, 0.6), rgba(42, 40, 80, 0.6));
+            border: 1px solid rgba(167, 139, 250, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+            margin-bottom: 3rem;
+        }
+
+        .content-card h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .content-card p {
+            color: var(--gray);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Core Values Section */
+        .core-values {
+            padding: 5rem 2rem;
+            background: linear-gradient(180deg, #0a0e27 0%, #000000 100%);
+        }
+
         .section-title {
             text-align: center;
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
-            position: relative;
             font-weight: 800;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
@@ -139,130 +210,179 @@
 
         .section-subtitle {
             text-align: center;
+            color: var(--gray);
             font-size: 1.2rem;
-            color: var(--gray);
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 2px;
-        }
-
-        /* Page Hero */
-        .page-hero {
-            background: linear-gradient(135deg, #1a1f3a, #000000);
-            color: white;
-            padding: 8rem 2rem 4rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .page-hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .page-hero p {
-            font-size: 1.2rem;
-            opacity: 0.8;
-            color: var(--gray);
-        }
-
-        /* About Content */
-        .about-content {
+        .values-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            margin-bottom: 3rem;
-        }
-
-        .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: var(--gray);
-            line-height: 1.8;
-        }
-
-        .about-image {
-            background: linear-gradient(135deg, rgba(167, 139, 250, 0.2), rgba(124, 58, 237, 0.2));
-            border: 1px solid rgba(167, 139, 250, 0.3);
-            border-radius: 20px;
-            padding: 3rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 400px;
-        }
-
-        .about-image i {
-            font-size: 10rem;
-            color: var(--primary);
-            opacity: 0.5;
-        }
-
-        /* Products Grid */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-top: 4rem;
+            margin-top: 3rem;
         }
 
-        .product-card {
+        .value-card {
             background: linear-gradient(135deg, rgba(26, 31, 58, 0.8), rgba(42, 40, 80, 0.8));
             padding: 2.5rem;
             border-radius: 20px;
             border: 1px solid rgba(167, 139, 250, 0.2);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
             transition: all 0.3s;
-            cursor: pointer;
-            backdrop-filter: blur(10px);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .product-card:hover {
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .value-card:hover {
             transform: translateY(-10px);
             border-color: rgba(167, 139, 250, 0.5);
             box-shadow: 0 20px 60px rgba(167, 139, 250, 0.2);
-            background: linear-gradient(135deg, rgba(26, 31, 58, 1), rgba(42, 40, 80, 1));
         }
 
-        .product-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .product-card h3 {
+        .value-card h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
             color: #ffffff;
-            font-weight: 600;
         }
 
-        .product-card p {
+        .value-card p {
             color: var(--gray);
             line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .value-card ul {
+            list-style: none;
+            text-align: left;
+            margin-top: 1rem;
+            color: var(--gray);
+        }
+
+        .value-card li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .value-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Why Partner Section */
+        .why-partner {
+            padding: 5rem 2rem;
+            background: var(--darker);
+        }
+
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .partner-card {
+            background: linear-gradient(135deg, rgba(26, 31, 58, 0.6), rgba(42, 40, 80, 0.6));
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary);
+            border: 1px solid rgba(167, 139, 250, 0.2);
+            transition: all 0.3s;
+        }
+
+        .partner-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 40px rgba(167, 139, 250, 0.15);
+            transform: translateX(5px);
+        }
+
+        .partner-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .partner-card .standard {
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .partner-card .benefit {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Difference Section */
+        .difference {
+            padding: 5rem 2rem;
+            background: linear-gradient(180deg, #0a0e27 0%, #000000 100%);
+        }
+
+        .difference-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .difference-card {
+            background: linear-gradient(135deg, rgba(26, 31, 58, 0.8), rgba(42, 40, 80, 0.8));
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(167, 139, 250, 0.2);
+            transition: all 0.3s;
+        }
+
+        .difference-card:hover {
+            border-color: rgba(167, 139, 250, 0.5);
+            box-shadow: 0 20px 60px rgba(167, 139, 250, 0.2);
+        }
+
+        .difference-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .difference-card p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .difference-card .result {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(167, 139, 250, 0.1);
+            border-radius: 10px;
+            border-left: 3px solid var(--primary);
         }
 
         /* Footer */
@@ -353,11 +473,11 @@
                 left: 0;
             }
 
-            .about-content {
+            .hero-content-about {
                 grid-template-columns: 1fr;
             }
 
-            .page-hero h1 {
+            .hero-text h1 {
                 font-size: 2rem;
             }
 
@@ -375,96 +495,146 @@
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">QuantumQuill</a>
+            <a href="index.html" class="logo">QuantumQuilll</a>
             <div class="mobile-toggle" id="mobileToggle">
                 <i class="fas fa-bars"></i>
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Services</a></li>
                 <li><a href="careers.html">Careers</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- ABOUT PAGE -->
-    <section class="page-hero">
-        <h1>About Us</h1>
-        <p>Building digital solutions that matter</p>
-    </section>
-
-    <section>
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Our Story</h3>
-                    <p>We are a forward-thinking technology startup dedicated to creating innovative digital solutions that empower businesses to thrive in the modern digital landscape.</p>
-                    <p>Founded with a vision to architect digital trust, we combine cutting-edge technology with deep industry expertise to deliver products that transform how businesses operate.</p>
-                    <p>Our team of passionate developers, designers, and strategists work collaboratively to build solutions that are not just functional, but exceptional.</p>
-                </div>
-                <div class="about-image">
-                    <i class="fas fa-rocket"></i>
-                </div>
+    <!-- Hero Section -->
+    <section class="hero-about">
+        <div class="hero-content-about">
+            <div class="hero-text">
+                <h1>About Us</h1>
+                <p class="subtitle">Architecting Digital Trust.</p>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" alt="Team collaboration">
             </div>
         </div>
     </section>
 
-    <section class="alt-bg">
+    <!-- Who We Are Section -->
+    <section class="who-we-are">
         <div class="container">
-            <h2 class="section-title">Our Values</h2>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3>Innovation</h3>
-                    <p>We constantly push boundaries and embrace new technologies to deliver cutting-edge solutions.</p>
-                </div>
-                <div class="product-card">
-                    <div class="product-icon">
+            <div class="content-card">
+                <h2>Who We Are: Architects of Digital Trust</h2>
+                <p>We are QuantumQuilll, and we don't just build software—we architect enduring digital trust. In a world defined by rapid, often unstable, change, we provide the strategic foresight and engineering excellence that keeps your business not just current, but ahead.</p>
+                <p>Our approach is rooted in <strong>Quantum Thinking</strong>: integrating next-gen AI, deep security principles, and scalable cloud architectures to create intelligent applications that solve tomorrow's problems today.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="core-values">
+        <div class="container">
+            <h2 class="section-title">Our Core Values</h2>
+            <p class="section-subtitle">The Quantum Commitment Edge</p>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>Trust</h3>
-                    <p>Building lasting relationships through transparency, reliability, and unwavering commitment to quality.</p>
+                    <h3>Trust-by-Design</h3>
+                    <p><strong>Our Pledge:</strong> We embed transparency, compliance (GDPR, SOC 2, etc.), and ethical standards directly into the architecture of every solution we build. Trust is not a feature; it's the foundation.</p>
+                    <p style="margin-top: 1rem;"><strong style="color: var(--primary);">Client Benefit:</strong> Guaranteed reliability, absolute data integrity, and a partnership built on open, honest communication from Day One.</p>
                 </div>
-                <div class="product-card">
-                    <div class="product-icon">
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Obsessive Scalability</h3>
+                    <p><strong>Our Pledge:</strong> We architect for hyper-growth. Every solution is built on modern, cloud-native principles, designed not for the current volume, but for the one you will achieve five years from now.</p>
+                    <p style="margin-top: 1rem;"><strong style="color: var(--primary);">Client Benefit:</strong> Your solution will never crash, throttle, or limit your business growth. We eliminate expensive, time-consuming refactoring down the line.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3>Collaboration</h3>
-                    <p>We believe in the power of teamwork and working closely with our clients to achieve success.</p>
+                    <h3>Collaborative Co-Creation</h3>
+                    <p><strong>Our Pledge:</strong> We reject the 'vendor-client' model. We immerse ourselves as an extension of your internal team, blending our specialized AI, security, and cloud expertise with your domain knowledge.</p>
+                    <p style="margin-top: 1rem;"><strong style="color: var(--primary);">Client Benefit:</strong> A faster time-to-market, higher user adoption, and a final product that perfectly aligns with your strategic business goals—because we built it together.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Intelligent Agility</h3>
+                    <p><strong>Our Pledge:</strong> We prioritize quick, practical problem-solving using modular, intelligent design patterns (Intelligent Applications/AIOps). This allows us to pivot faster than the market demands.</p>
+                    <p style="margin-top: 1rem;"><strong style="color: var(--primary);">Client Benefit:</strong> Maximum responsiveness to market feedback and competitive pressures, delivering rapid iteration without sacrificing architectural integrity or security.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section>
+    <!-- Why Partner With Us -->
+    <section class="why-partner">
         <div class="container">
-            <h2 class="section-title">Our Team</h2>
-            <p class="section-subtitle">Talented professionals dedicated to excellence</p>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3>Sruthi</h3>
-                    <p>Founder & CEO - Visionary leader with 10+ years of tech industry experience</p>
+            <h2 class="section-title">Why Partner with Us?</h2>
+
+            <div class="partner-grid">
+                <div class="partner-card">
+                    <h3>Vision & Foresight</h3>
+                    <p class="standard">We operate at the intersection of AI, Web3, and hyper-automation. We build systems designed to adapt to inevitable technological shifts, ensuring your investment has a 5-10 year horizon.</p>
+                    <p class="benefit"><strong>Future-Proofing:</strong> Your project won't just launch; it will lead its market for years to come.</p>
                 </div>
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-user-circle"></i>
-                    </div>
-                    <h3>Development Team</h3>
-                    <p>Expert developers skilled in modern technologies and best practices</p>
+
+                <div class="partner-card">
+                    <h3>Commitment to Trust</h3>
+                    <p class="standard">Our foundation is Digital Trust—meaning transparent processes, zero-tolerance security, and ethical AI development baked into every line of code.</p>
+                    <p class="benefit"><strong>Reliability:</strong> You gain a partner whose reputation is built on delivering robust, secure, and fully compliant solutions.</p>
                 </div>
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h3>Design Team</h3>
-                    <p>Creative designers crafting beautiful and intuitive user experiences</p>
+
+                <div class="partner-card">
+                    <h3>Project Approach</h3>
+                    <p class="standard">We move beyond traditional Agile to Synergistic Development. This means rapid, continuous deployment coupled with deep-dive strategic planning, ensuring speed never compromises quality.</p>
+                    <p class="benefit"><strong>Guaranteed Success:</strong> We treat your project not as a contract, but as a co-authored legacy, ensuring alignment from concept to market dominance.</p>
+                </div>
+
+                <div class="partner-card">
+                    <h3>Expertise</h3>
+                    <p class="standard">Our team is comprised of certified Cloud Architects, LLM Specialists, and Senior Security Engineers, possessing verifiable experience delivering complex, mission-critical systems worldwide.</p>
+                    <p class="benefit"><strong>Elite Execution:</strong> You are hiring a proven, specialized team dedicated to the high-level success and intelligent evolution of your application.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Makes Us Different -->
+    <section class="difference">
+        <div class="container">
+            <h2 class="section-title">What Makes Us Different?</h2>
+            <p class="section-subtitle">Our Irreplaceable Edge</p>
+
+            <div class="difference-grid">
+                <div class="difference-card">
+                    <h3>1. The Quantum-Leap Guarantee: Future-Proofing by Default</h3>
+                    <p>Most firms build to spec; we build for scalability across decades. We utilize a proprietary Quantum Architecture Framework (QAF) that integrates predictive AI and modular design. This means your platform is natively equipped to leverage tomorrow's technologies (like quantum-resistant encryption and advanced LLMs) without costly, destabilizing overhauls.</p>
+                    <p class="result">The result for you: Immediate confidence that your digital investment will retain its competitive edge for the long term.</p>
+                </div>
+
+                <div class="difference-card">
+                    <h3>2. Deep Expertise Meets Surgical Focus</h3>
+                    <p>Our value comes not just from what we know, but how we apply it. Our teams are composed of recognized specialists—not generalists—in Digital Trust, Enterprise AI deployment, and complex cloud orchestration. We apply surgical precision to your most critical challenges, cutting through complexity to deliver lean, high-performing solutions.</p>
+                    <p class="result">The result for you: Faster development cycles and a solution built right the first time, significantly reducing your total cost of ownership (TCO).</p>
+                </div>
+
+                <div class="difference-card">
+                    <h3>3. The Partnership of Assurance: 24/7/365</h3>
+                    <p>Our commitment extends far beyond launch. We offer proactive, round-the-clock client assurance and strategic counsel. This isn't just basic support; it's a dedicated, knowledgeable team monitoring your platform's health, preempting security threats, and providing timely advice that shapes your business strategy.</p>
+                    <p class="result">The result for you: Total peace of mind, knowing your platform is managed by experts who are as invested in its operational excellence as you are in its success.</p>
                 </div>
             </div>
         </div>
@@ -474,7 +644,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>QuantumQuill</h3>
+                <h3>QuantumQuilll</h3>
                 <p>Architecting the Digital Trust</p>
                 <p style="margin-top: 1rem;">Building innovative technology solutions that empower businesses to thrive in the digital age.</p>
                 <div class="social-links">
@@ -488,12 +658,12 @@
                 <h3>Quick Links</h3>
                 <a href="index.html">Home</a>
                 <a href="about.html">About Us</a>
-                <a href="products.html">Products</a>
+                <a href="products.html">Services</a>
                 <a href="careers.html">Careers</a>
                 <a href="contact.html">Contact</a>
             </div>
             <div class="footer-section">
-                <h3>Our Products</h3>
+                <h3>Our Services</h3>
                 <a href="products.html">Website Development</a>
                 <a href="products.html">Property Management System</a>
                 <a href="products.html">Channel Manager</a>
@@ -507,7 +677,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 QuantumQuill. All rights reserved. | Architecting the Digital Trust</p>
+            <p>&copy; 2025 QuantumQuilll. All rights reserved. | Architecting the Digital Trust</p>
         </div>
     </footer>
 
