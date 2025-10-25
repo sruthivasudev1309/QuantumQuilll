@@ -489,6 +489,191 @@
         html {
             scroll-behavior: smooth;
         }
+        .why-partner {
+    padding: 5rem 2rem;
+    background: var(--darker);
+    position: relative;
+}
+
+/* Partner Header */
+.partner-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.partner-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.title-underline {
+    width: 200px;
+    height: 4px;
+    background: linear-gradient(90deg, #06b6d4, #a78bfa);
+    margin: 1rem auto;
+    border-radius: 2px;
+}
+
+.partner-subtitle {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+/* Enhanced Partner Grid */
+.partner-grid-enhanced {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.partner-card-enhanced {
+    background: linear-gradient(135deg, rgba(26, 31, 58, 0.8), rgba(15, 23, 42, 0.8));
+    border: 2px solid rgba(167, 139, 250, 0.3);
+    border-radius: 25px;
+    padding: 2.5rem;
+    position: relative;
+    transition: all 0.3s;
+    overflow: hidden;
+}
+
+/* Gradient Border Effect on Hover */
+.partner-card-enhanced::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 25px;
+    padding: 2px;
+    background: linear-gradient(135deg, #06b6d4, #a78bfa);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.partner-card-enhanced:hover::before {
+    opacity: 1;
+}
+
+.partner-card-enhanced:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(167, 139, 250, 0.2);
+}
+
+/* Card Icon */
+.card-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(167, 139, 250, 0.2));
+    border: 2px solid rgba(167, 139, 250, 0.4);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s;
+}
+
+.partner-card-enhanced:hover .card-icon {
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.4), rgba(167, 139, 250, 0.4));
+    transform: scale(1.1);
+}
+
+.card-icon i {
+    font-size: 2rem;
+    background: linear-gradient(135deg, #06b6d4, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.card-icon svg {
+    stroke: url(#iconGradient);
+}
+
+/* Add gradient definition for SVG icons */
+.partner-card-enhanced svg defs,
+.card-icon svg defs {
+    display: none;
+}
+
+.card-icon svg {
+    filter: drop-shadow(0 0 8px rgba(167, 139, 250, 0.4));
+}
+
+.card-icon svg * {
+    stroke: #06b6d4;
+}
+
+.partner-card-enhanced:hover .card-icon svg * {
+    stroke: #a78bfa;
+    transition: stroke 0.3s;
+}
+
+.partner-card-enhanced h3 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.partner-card-enhanced .pledge {
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+/* Partner Footer */
+.partner-footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+}
+
+.partner-footer p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .partner-grid-enhanced {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .partner-title {
+        font-size: 2rem;
+    }
+
+    .partner-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .partner-card-enhanced {
+        padding: 2rem;
+    }
+
+    .card-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .card-icon i {
+        font-size: 1.5rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -580,37 +765,94 @@
     </section>
 
     <!-- Why Partner With Us -->
-    <section class="why-partner">
-        <div class="container">
-            <h2 class="section-title">Why Partner with Us?</h2>
+   <!-- Enhanced Why Partner Section -->
+<!-- Enhanced Why Partner Section -->
+<section class="why-partner">
+    <div class="container">
+        <div class="partner-header">
+            <h2 class="partner-title">Why Partner with Us?</h2>
+            <div class="title-underline"></div>
+            <p class="partner-subtitle">Architects of Digital Trust</p>
+        </div>
 
-            <div class="partner-grid">
-                <div class="partner-card">
-                    <h3>Vision & Foresight</h3>
-                    <p class="standard">We operate at the intersection of AI, Web3, and hyper-automation. We build systems designed to adapt to inevitable technological shifts, ensuring your investment has a 5-10 year horizon.</p>
-                    <p class="benefit"><strong>Future-Proofing:</strong> Your project won't just launch; it will lead its market for years to come.</p>
+        <div class="partner-grid-enhanced">
+            <div class="partner-card-enhanced">
+                <div class="card-icon">
+                    <svg viewBox="0 0 64 64" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="32" cy="32" r="12"/>
+                        <circle cx="18" cy="18" r="3"/>
+                        <circle cx="46" cy="18" r="3"/>
+                        <circle cx="18" cy="46" r="3"/>
+                        <circle cx="46" cy="46" r="3"/>
+                        <line x1="32" y1="20" x2="32" y2="12"/>
+                        <line x1="44" y1="32" x2="52" y2="32"/>
+                        <line x1="32" y1="44" x2="32" y2="52"/>
+                        <line x1="20" y1="32" x2="12" y2="32"/>
+                        <line x1="25" y1="25" x2="20" y2="20"/>
+                        <line x1="39" y1="25" x2="44" y2="20"/>
+                        <line x1="39" y1="39" x2="44" y2="44"/>
+                        <line x1="25" y1="39" x2="20" y2="44"/>
+                    </svg>
                 </div>
+                <h3>Vision & Foresight</h3>
+                <p class="pledge">Our Pledge: We operate at the intersection of AI, Web3, and hyper-automation. We build systems designed to adapt to inevitable technological shifts, ensuring your investment has a 5-10 year horizon.</p>
+            </div>
 
-                <div class="partner-card">
-                    <h3>Commitment to Trust</h3>
-                    <p class="standard">Our foundation is Digital Trust—meaning transparent processes, zero-tolerance security, and ethical AI development baked into every line of code.</p>
-                    <p class="benefit"><strong>Reliability:</strong> You gain a partner whose reputation is built on delivering robust, secure, and fully compliant solutions.</p>
+            <div class="partner-card-enhanced">
+                <div class="card-icon">
+                    <svg viewBox="0 0 64 64" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="16" y="24" width="32" height="28" rx="2"/>
+                        <path d="M20 24 V20 C20 15 24 12 32 12 C40 12 44 15 44 20 V24"/>
+                        <rect x="24" y="28" width="16" height="12" rx="2" fill="currentColor" opacity="0.3"/>
+                        <circle cx="32" cy="34" r="2" fill="currentColor"/>
+                        <path d="M32 36 L32 40" stroke-width="3"/>
+                    </svg>
                 </div>
+                <h3>Commitment to Trust</h3>
+                <p class="pledge">Our Pledge: We embed trust at the core—transparent processes, compliance (GDPR, SOC 2, etc.), and ethical AI development baked into every line of code.</p>
+            </div>
 
-                <div class="partner-card">
-                    <h3>Project Approach</h3>
-                    <p class="standard">We move beyond traditional Agile to Synergistic Development. This means rapid, continuous deployment coupled with deep-dive strategic planning, ensuring speed never compromises quality.</p>
-                    <p class="benefit"><strong>Guaranteed Success:</strong> We treat your project not as a contract, but as a co-authored legacy, ensuring alignment from concept to market dominance.</p>
+            <div class="partner-card-enhanced">
+                <div class="card-icon">
+                    <svg viewBox="0 0 64 64" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="32" cy="20" r="6"/>
+                        <circle cx="18" cy="44" r="5"/>
+                        <circle cx="46" cy="44" r="5"/>
+                        <circle cx="32" cy="44" r="8" fill="currentColor" opacity="0.3"/>
+                        <line x1="28" y1="25" x2="22" y2="40"/>
+                        <line x1="36" y1="25" x2="42" y2="40"/>
+                        <line x1="32" y1="28" x2="32" y2="36"/>
+                        <line x1="23" y1="44" x2="28" y2="44"/>
+                        <line x1="36" y1="44" x2="41" y2="44"/>
+                    </svg>
                 </div>
+                <h3>Collaborative Co-Creation</h3>
+                <p class="pledge">Our Pledge: We reflect 'vendor-client' mindset. We immerse as an extension of your team, combining our specialized AI, security, and cloud expertise with your domain knowledge to build together.</p>
+            </div>
 
-                <div class="partner-card">
-                    <h3>Expertise</h3>
-                    <p class="standard">Our team is comprised of certified Cloud Architects, LLM Specialists, and Senior Security Engineers, possessing verifiable experience delivering complex, mission-critical systems worldwide.</p>
-                    <p class="benefit"><strong>Elite Execution:</strong> You are hiring a proven, specialized team dedicated to the high-level success and intelligent evolution of your application.</p>
+            <div class="partner-card-enhanced">
+                <div class="card-icon">
+                    <svg viewBox="0 0 64 64" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="32" cy="26" r="6"/>
+                        <circle cx="18" cy="46" r="5"/>
+                        <circle cx="32" cy="46" r="5"/>
+                        <circle cx="46" cy="46" r="5"/>
+                        <line x1="28" y1="30" x2="21" y2="42"/>
+                        <line x1="32" y1="32" x2="32" y2="41"/>
+                        <line x1="36" y1="30" x2="43" y2="42"/>
+                        <circle cx="32" cy="26" r="3" fill="currentColor" opacity="0.3"/>
+                    </svg>
                 </div>
+                <h3>Project Approach</h3>
+                <p class="pledge">Our Pledge: We architect with agile, real-time cycling, promising rapid deployments promising innovative capabilities, so momentum stays with your rivals or competitors; it'll together.</p>
             </div>
         </div>
-    </section>
+
+        <div class="partner-footer">
+            <p>These are more words. These are the principles that ensure QuantumQuill is the dedicated, high performance partner your next groundbreaking project deserves.</p>
+        </div>
+    </div>
+</section>
 
     <!-- What Makes Us Different -->
     <section class="difference">
