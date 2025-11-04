@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuantumQuilll - About Us</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #a78bfa;
+            --secondary: #7c3aed;
+            --accent: #06b6d4;
+            --dark: #0a0e27;
+            --darker: #000000;
+            --light: #f8fafc;
+            --gray: #9ca3af;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            overflow-x: hidden;
+            background: var(--darker);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(167, 139, 250, 0.2);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        nav.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(0, 0, 0, 0.95);
+            box-shadow: 0 4px 30px rgba(167, 139, 250, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #ffffff;
+        }
+
+        /* Hero Section */
+        .hero-about {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            background: radial-gradient(ellipse at top, #1a1f3a 0%, #000000 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23a78bfa" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            animation: moveGrid 20s linear infinite;
+        }
+
+        @keyframes moveGrid {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .hero-content-about {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .hero-image {
+            background: linear-gradient(135deg, rgba(26, 31, 58, 0.8), rgba(42, 40, 80, 0.8));
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(167, 139, 250, 0.2);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Who We Are Section */
+        .who-we-are {
+            padding: 5rem 2rem;
+            background: var(--darker);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .content-card {
+            background: linear-gradient(135deg, rgba(26, 31, 58, 0.6), rgba(42, 40, 80, 0.6));
+            border: 1px solid rgba(167, 139, 250, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+            margin-bottom: 3rem;
+        }
+
+        .content-card h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .content-card p {
+            color: var(--gray);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Core Values Section */
+        .core-values {
+            padding: 5rem 2rem;
+            background: linear-gradient(180deg, #0a0e27 0%, #000000 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: linear-gradient(135deg, rgba(26, 31, 58, 0.8), rgba(42, 40, 80, 0.8));
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(167, 139, 250, 0.2);
+            transition: all 0.3s;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(167, 139, 250, 0.5);
+            box-shadow: 0 20px 60px rgba(167, 139, 250, 0.2);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .value-card p {
+            color: var(--gray);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .value-card ul {
+            list-style: none;
+            text-align: left;
+            margin-top: 1rem;
+            color: var(--gray);
+        }
+
+        .value-card li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .value-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Why Partner Section */
+        .why-partner {
+            padding: 5rem 2rem;
+            background: var(--darker);
+        }
+
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .partner-card {
+            background: linear-gradient(135deg, rgba(26, 31, 58, 0.6), rgba(42, 40, 80, 0.6));
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary);
+            border: 1px solid rgba(167, 139, 250, 0.2);
+            transition: all 0.3s;
+        }
+
+        .partner-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 40px rgba(167, 139, 250, 0.15);
+            transform: translateX(5px);
+        }
+
+        .partner-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .partner-card .standard {
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .partner-card .benefit {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Difference Section */
+        .difference {
+            padding: 5rem 2rem;
+            background: linear-gradient(180deg, #0a0e27 0%, #000000 100%);
+        }
+
+        .difference-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .difference-card {
+            background: linear-gradient(135deg, rgba(26, 31, 58, 0.8), rgba(42, 40, 80, 0.8));
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(167, 139, 250, 0.2);
+            transition: all 0.3s;
+        }
+
+        .difference-card:hover {
+            border-color: rgba(167, 139, 250, 0.5);
+            box-shadow: 0 20px 60px rgba(167, 139, 250, 0.2);
+        }
+
+        .difference-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .difference-card p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .difference-card .result {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(167, 139, 250, 0.1);
+            border-radius: 10px;
+            border-left: 3px solid var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: #000000;
+            color: #ffffff;
+            padding: 3rem 2rem 1rem;
+            border-top: 1px solid rgba(167, 139, 250, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--gray);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(167, 139, 250, 0.15);
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            color: var(--primary);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: #000000;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(167, 139, 250, 0.2);
+            color: var(--gray);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                padding: 2rem;
+                transition: left 0.3s;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hero-content-about {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+       .why-partner {
+    padding: 4rem 2rem;
+    background: var(--darker);
+    position: relative;
+}
+
+/* Partner Header */
+.partner-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.partner-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.title-underline {
+    width: 200px;
+    height: 4px;
+    background: linear-gradient(90deg, #06b6d4, #a78bfa);
+    margin: 1rem auto;
+    border-radius: 2px;
+}
+
+.partner-subtitle {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+/* Enhanced Partner Grid */
+.partner-grid-enhanced {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.partner-card-enhanced {
+    background: linear-gradient(135deg, rgba(26, 31, 58, 0.8), rgba(15, 23, 42, 0.8));
+    border: 2px solid rgba(167, 139, 250, 0.3);
+    border-radius: 25px;
+    padding: 2rem 2rem 1.8rem 2rem;
+    position: relative;
+    transition: all 0.3s;
+    overflow: hidden;
+}
+
+/* Gradient Border Effect on Hover */
+.partner-card-enhanced::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 25px;
+    padding: 2px;
+    background: linear-gradient(135deg, #06b6d4, #a78bfa);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.partner-card-enhanced:hover::before {
+    opacity: 1;
+}
+
+.partner-card-enhanced:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(167, 139, 250, 0.2);
+}
+
+/* Card Icon */
+.card-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(167, 139, 250, 0.2));
+    border: 2px solid rgba(167, 139, 250, 0.4);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+    transition: all 0.3s;
+}
+
+.partner-card-enhanced:hover .card-icon {
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.4), rgba(167, 139, 250, 0.4));
+    transform: scale(1.1);
+}
+
+.card-icon i {
+    font-size: 2rem;
+    background: linear-gradient(135deg, #06b6d4, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.card-icon svg {
+    stroke: url(#iconGradient);
+}
+
+/* Add gradient definition for SVG icons */
+.partner-card-enhanced svg defs,
+.card-icon svg defs {
+    display: none;
+}
+
+.card-icon svg {
+    filter: drop-shadow(0 0 8px rgba(167, 139, 250, 0.4));
+}
+
+.card-icon svg * {
+    stroke: #06b6d4;
+}
+
+.partner-card-enhanced:hover .card-icon svg * {
+    stroke: #a78bfa;
+    transition: stroke 0.3s;
+}
+
+.partner-card-enhanced h3 {
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+
+.partner-card-enhanced .pledge {
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+/* Partner Footer */
+.partner-footer {
+    text-align: center;
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+}
+
+.partner-footer p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .partner-grid-enhanced {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .partner-title {
+        font-size: 2rem;
+    }
+
+    .partner-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .partner-card-enhanced {
+        padding: 2rem;
+    }
+
+    .card-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .card-icon i {
+        font-size: 1.5rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">QuantumQuilll</a>
+            <div class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Services</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-about">
+        <div class="hero-content-about">
+            <div class="hero-text">
+                <h1>About Us</h1>
+                <p class="subtitle">Architecting Digital Trust.</p>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" alt="Team collaboration">
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Are Section -->
+    <section class="who-we-are">
+        <div class="container">
+            <div class="content-card">
+                <h2>Who We Are: Architects of Digital Trust</h2>
+                <p>We are QuantumQuilll, and we don't just build software—we architect enduring digital trust. In a world defined by rapid, often unstable, change, we provide the strategic foresight and engineering excellence that keeps your business not just current, but ahead.</p>
+                <p>Our approach is rooted in <strong>Quantum Thinking</strong>: integrating next-gen AI, deep security principles, and scalable cloud architectures to create intelligent applications that solve tomorrow's problems today.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="core-values">
+        <div class="container">
+            <h2 class="section-title">Our Core Values</h2>
+            <p class="section-subtitle">The Quantum Commitment Edge</p>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Trust-by-Design</h3>
+                    <p><strong>Our Pledge:</strong> We embed transparency, compliance (GDPR, SOC 2, etc.), and ethical standards directly into the architecture of every solution we build. Trust is not a feature; it's the foundation.</p>
+                    <p style="margin-top: 1rem;"><strong style="color: var(--primary);">Client Benefit:</strong> Guaranteed reliability, absolute data integrity, and a partnership built on open, honest communication from Day One.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Obsessive Scalability</h3>
+                    <p><strong>Our Pledge:</strong> We architect for hyper-growth. Every solution is built on modern, cloud-native principles, designed not for the current volume, but for the one you will achieve five years from now.</p>
+                    <p style="margin-top: 1rem;"><strong style="color: var(--primary);">Client Benefit:</strong> Your solution will never crash, throttle, or limit your business growth. We eliminate expensive, time-consuming refactoring down the line.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Collaborative Co-Creation</h3>
+                    <p><strong>Our Pledge:</strong> We reject the 'vendor-client' model. We immerse ourselves as an extension of your internal team, blending our specialized AI, security, and cloud expertise with your domain knowledge.</p>
+                    <p style="margin-top: 1rem;"><strong style="color: var(--primary);">Client Benefit:</strong> A faster time-to-market, higher user adoption, and a final product that perfectly aligns with your strategic business goals—because we built it together.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Intelligent Agility</h3>
+                    <p><strong>Our Pledge:</strong> We prioritize quick, practical problem-solving using modular, intelligent design patterns (Intelligent Applications/AIOps). This allows us to pivot faster than the market demands.</p>
+                    <p style="margin-top: 1rem;"><strong style="color: var(--primary);">Client Benefit:</strong> Maximum responsiveness to market feedback and competitive pressures, delivering rapid iteration without sacrificing architectural integrity or security.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <section class="why-partner">
+    <div class="container">
+        <div class="partner-header">
+            <h2 class="partner-title">Why Partner with Us?</h2>
+            <div class="title-underline"></div>
+            <p class="partner-subtitle">Architects of Digital Trust</p>
+        </div>
+
+        <div class="partner-grid-enhanced">
+            <div class="partner-card-enhanced">
+                <div class="card-icon">
+                    <svg viewBox="0 0 64 64" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                        <circle cx="32" cy="32" r="8"/>
+                        <circle cx="32" cy="32" r="4" fill="currentColor" opacity="0.3"/>
+                        <line x1="32" y1="16" x2="32" y2="20"/>
+                        <line x1="48" y1="32" x2="44" y2="32"/>
+                        <line x1="32" y1="48" x2="32" y2="44"/>
+                        <line x1="16" y1="32" x2="20" y2="32"/>
+                        <circle cx="32" cy="16" r="2"/>
+                        <circle cx="48" cy="32" r="2"/>
+                        <circle cx="32" cy="48" r="2"/>
+                        <circle cx="16" cy="32" r="2"/>
+                        <line x1="40" y1="24" x2="43" y2="21"/>
+                        <line x1="40" y1="40" x2="43" y2="43"/>
+                        <line x1="24" y1="40" x2="21" y2="43"/>
+                        <line x1="24" y1="24" x2="21" y2="21"/>
+                        <circle cx="43" cy="21" r="2"/>
+                        <circle cx="43" cy="43" r="2"/>
+                        <circle cx="21" cy="43" r="2"/>
+                        <circle cx="21" cy="21" r="2"/>
+                    </svg>
+                </div>
+                <h3>Vision & Foresight</h3>
+                <p class="pledge">Our Pledge: We operate at the intersection of AI, Web3, and hyper-automation. We build systems designed to adapt to inevitable technological shifts, ensuring your investment has a 5-10 year horizon.</p>
+            </div>
+
+            <div class="partner-card-enhanced">
+                <div class="card-icon">
+                    <svg viewBox="0 0 64 64" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                        <rect x="18" y="28" width="28" height="24" rx="2"/>
+                        <path d="M22 28 V22 C22 17 26 14 32 14 C38 14 42 17 42 22 V28"/>
+                        <rect x="26" y="32" width="12" height="10" rx="1" opacity="0.3" fill="currentColor"/>
+                        <path d="M28 36 L30 36 M34 36 L36 36 M28 40 L30 40 M34 40 L36 40"/>
+                        <circle cx="32" cy="38" r="2" fill="currentColor"/>
+                    </svg>
+                </div>
+                <h3>Commitment to Trust</h3>
+                <p class="pledge">Our Pledge: We embed trust at the core—transparent processes, compliance (GDPR, SOC 2, etc.), and ethical AI development baked into every line of code.</p>
+            </div>
+
+            <div class="partner-card-enhanced">
+                <div class="card-icon">
+                    <svg viewBox="0 0 64 64" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                        <circle cx="20" cy="44" r="5"/>
+                        <circle cx="32" cy="44" r="5"/>
+                        <circle cx="44" cy="44" r="5"/>
+                        <circle cx="26" cy="22" r="5"/>
+                        <circle cx="38" cy="22" r="5"/>
+                        <circle cx="32" cy="32" r="7" opacity="0.3" fill="currentColor"/>
+                        <line x1="24" y1="26" x2="22" y2="40"/>
+                        <line x1="32" y1="27" x2="32" y2="39"/>
+                        <line x1="40" y1="26" x2="42" y2="40"/>
+                        <line x1="25" y1="44" x2="27" y2="44"/>
+                        <line x1="37" y1="44" x2="39" y2="44"/>
+                    </svg>
+                </div>
+                <h3>Collaborative Co-Creation</h3>
+                <p class="pledge">Our Pledge: We reject the 'vendor-client' mindset. We immerse as an extension of your team, combining our specialized AI, security, and cloud expertise with your domain knowledge to build together.</p>
+            </div>
+
+            <div class="partner-card-enhanced">
+                <div class="card-icon">
+                    <svg viewBox="0 0 64 64" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                        <circle cx="20" cy="44" r="5"/>
+                        <circle cx="32" cy="44" r="5"/>
+                        <circle cx="44" cy="44" r="5"/>
+                        <circle cx="32" cy="24" r="6"/>
+                        <circle cx="32" cy="34" r="4" opacity="0.3" fill="currentColor"/>
+                        <line x1="28" y1="29" x2="22" y2="40"/>
+                        <line x1="32" y1="30" x2="32" y2="39"/>
+                        <line x1="36" y1="29" x2="42" y2="40"/>
+                        <line x1="25" y1="44" x2="27" y2="44"/>
+                        <line x1="37" y1="44" x2="39" y2="44"/>
+                    </svg>
+                </div>
+                <h3>Project Approach</h3>
+                <p class="pledge">Our Pledge: We architect with agile, real-time cycling, promising rapid deployments with innovative capabilities, so momentum stays with you together.</p>
+            </div>
+        </div>
+
+        <div class="partner-footer">
+            <p>These are more words. These are the principles that ensure QuantumQuill is the dedicated, high performance partner your next groundbreaking project deserves.</p>
+        </div>
+    </div>
+</section>
+
+
+    <!-- What Makes Us Different -->
+    <section class="difference">
+        <div class="container">
+            <h2 class="section-title">What Makes Us Different?</h2>
+            <p class="section-subtitle">Our Irreplaceable Edge</p>
+
+            <div class="difference-grid">
+                <div class="difference-card">
+                    <h3>1. The Quantum-Leap Guarantee: Future-Proofing by Default</h3>
+                    <p>Most firms build to spec; we build for scalability across decades. We utilize a proprietary Quantum Architecture Framework (QAF) that integrates predictive AI and modular design. This means your platform is natively equipped to leverage tomorrow's technologies (like quantum-resistant encryption and advanced LLMs) without costly, destabilizing overhauls.</p>
+                    <p class="result">The result for you: Immediate confidence that your digital investment will retain its competitive edge for the long term.</p>
+                </div>
+
+                <div class="difference-card">
+                    <h3>2. Deep Expertise Meets Surgical Focus</h3>
+                    <p>Our value comes not just from what we know, but how we apply it. Our teams are composed of recognized specialists—not generalists—in Digital Trust, Enterprise AI deployment, and complex cloud orchestration. We apply surgical precision to your most critical challenges, cutting through complexity to deliver lean, high-performing solutions.</p>
+                    <p class="result">The result for you: Faster development cycles and a solution built right the first time, significantly reducing your total cost of ownership (TCO).</p>
+                </div>
+
+                <div class="difference-card">
+                    <h3>3. The Partnership of Assurance: 24/7/365</h3>
+                    <p>Our commitment extends far beyond launch. We offer proactive, round-the-clock client assurance and strategic counsel. This isn't just basic support; it's a dedicated, knowledgeable team monitoring your platform's health, preempting security threats, and providing timely advice that shapes your business strategy.</p>
+                    <p class="result">The result for you: Total peace of mind, knowing your platform is managed by experts who are as invested in its operational excellence as you are in its success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>QuantumQuilll</h3>
+                <p>Architecting the Digital Trust</p>
+                <p style="margin-top: 1rem;">Building innovative technology solutions that empower businesses to thrive in the digital age.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="products.html">Services</a>
+                <a href="careers.html">Careers</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Our Services</h3>
+                <a href="products.html">Website Development</a>
+                <a href="products.html">Property Management System</a>
+                <a href="products.html">Channel Manager</a>
+                <a href="products.html">AI Solutions</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-envelope"></i> sruthivasudev@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +91 (XXX) XXX-XXXX</p>
+                <p><i class="fas fa-map-marker-alt"></i> Kanayannur, Kerala, India</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 QuantumQuilll. All rights reserved. | Architecting the Digital Trust</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
