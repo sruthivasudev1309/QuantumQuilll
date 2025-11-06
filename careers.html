@@ -1106,19 +1106,43 @@ document.getElementById("applicationForm").addEventListener("submit", function(e
         </div>
     </footer>
 
-    <script>
-        // Mobile Navigation
-        const mobileToggle = document.getElementById('mobileToggle');
-        const navLinks = document.getElementById('navLinks');
+   <script>
+    // Mobile Navigation
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
 
-        mobileToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            const icon = mobileToggle.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
+    mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const icon = mobileToggle.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+    });
 
-        // Job data
-        const jobData = {
-            'cloud-architect': {
-                title: 'Senior Cloud Architect - AWS/Azure
+    // Job data
+    const jobData = {
+        'cloud-architect': {
+            title: 'Senior Cloud Architect - AWS/Azure',
+            location: 'Remote / Global',
+            description: 'We are looking for an experienced Cloud Architect to design and implement scalable cloud solutions.'
+        },
+        'frontend-developer': {
+            title: 'Frontend Developer - React.js',
+            location: 'New York, USA',
+            description: 'Seeking a skilled Frontend Developer with React experience to build dynamic web applications.'
+        },
+        'backend-developer': {
+            title: 'Backend Developer - Node.js',
+            location: 'London, UK',
+            description: 'Looking for a Backend Developer proficient in Node.js and database management.'
+        }
+    };
+
+    // Example: Display selected job details (can be adapted to your form/page)
+    function displayJob(jobKey) {
+        const job = jobData[jobKey];
+        if (!job) return;
+        document.getElementById('jobTitle').innerText = job.title;
+        document.getElementById('jobLocation').innerText = job.location;
+        document.getElementById('jobDescription').innerText = job.description;
+    }
+</script>

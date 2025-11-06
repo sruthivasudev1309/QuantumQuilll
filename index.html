@@ -1728,113 +1728,15 @@
         font-size: 16px !important;
     }
 }
-.mobile-toggle {
-  display: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #ffffff;
-}
-
-/* ... */
-
 @media (max-width: 768px) {
-  .mobile-toggle {
-    display: block;
-  }
-  .nav-links.active {
-    left: 0;
-  }
-}
-/* Header - Desktop Defaults */
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 1rem 2rem;
-  position: relative;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-.logo-img {
-  height: 40px;
-  margin-right: 0.5rem;
-}
-.logo-text {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: 0.5px;
-}
-.big-q {
-  font-size: 1.6em;
-  color: var(--primary, #a78bfa);
-}
-
-/* Hide mobile toggle on desktop */
-.mobile-toggle {
-  display: none;
-  font-size: 2rem;
-  color: #fff;
-  cursor: pointer;
-  margin-left: 1rem;
-}
-
-/* Horizontal nav for desktop */
-.header-links {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  gap: 1.8rem;
-  margin-left: 2rem;
-}
-.header-links li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  position: relative;
-}
-.header-links li a:hover,
-.header-links li a:focus {
-  color: var(--primary, #a78bfa);
-}
-.header-links li a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  left: 0;
-  bottom: -5px;
-  background: var(--primary, #a78bfa);
-  transition: width 0.3s;
-}
-.header-links li a:hover::after,
-.header-links li a:focus::after {
-  width: 100%;
-}
-
-/* --- MOBILE STYLES --- */
-@media (max-width: 768px) {
-  .header-container {
-    padding: 0.6rem 1rem;
-    min-height: 56px;
-  }
-  .logo-text {
-    font-size: 1rem;
-  }
   .header-links {
     position: fixed;
-    left: -100%;
+    left: -100%; /* hidden by default */
     top: 0;
     width: 75vw;
     max-width: 300px;
     height: 100vh;
-    background: #161932;
+    background: #161932; /* dark background */
     flex-direction: column;
     align-items: flex-start;
     padding: 2.5rem 1.2rem 1rem 1.2rem;
@@ -1843,36 +1745,24 @@
     z-index: 10000;
     transition: left 0.33s cubic-bezier(.77,.2,.05,1.0);
   }
+
   .header-links.active {
-    left: 0;
+    left: 0; /* slide in */
   }
+
   .mobile-toggle {
     display: block;
     z-index: 11000;
+    cursor: pointer;
   }
-  /* Dim background when menu open */
+
+  /* Optional: dim background when menu is open */
   body.menu-open::before {
-    content:'';
-    position: fixed; left: 0; top: 0; right: 0; bottom: 0;
+    content: '';
+    position: fixed;
+    left: 0; top: 0; right: 0; bottom: 0;
     background: rgba(30,19,60,0.6);
     z-index: 9000;
-  }
-}
-
-/* X icon styling (optional) */
-.mobile-toggle.open i {
-  color: var(--primary, #a78bfa);
-}
-
-@media (max-width: 450px) {
-  .header-links {
-    width: 100vw;
-    max-width: none;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-  .logo-text {
-    font-size: 0.9rem;
   }
 }
 
@@ -2094,166 +1984,19 @@
             <p>&copy; 2025 QuantumQuill. All rights reserved. | Architecting the Digital Trust</p>
         </div>
     </footer>
-
-    <script>
-        // Mobile Navigation Toggle
-        // Navigation scroll effect
-        // File upload handling
-        const resumeInput = document.getElementById('resume');
-        const fileNameDisplay = document.getElementById('fileName');
-
-        if (resumeInput) {
-            resumeInput.addEventListener('change', function() {
-                if (this.files && this.files.length > 0) {
-                    fileNameDisplay.textContent = '📄 ' + this.files[0].name;
-                } else {
-                    fileNameDisplay.textContent = '';
-                }
-            });
-        }
-
-        // Contact Form Submission
-        const contactForm = document.getElementById('contactForm');
-        const contactAlert = document.getElementById('contactAlert');
-        const contactSubmit = document.getElementById('contactSubmit');
-
-        if (contactForm) {
-            contactForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-
-                contactSubmit.disabled = true;
-                contactSubmit.innerHTML = '<span class="loading"></span> Sending...';
-
-                const formData = new FormData(contactForm);
-
-                try {
-                    const response = await fetch('https://getform.io/f/YOUR_CONTACT_FORM_ID', {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-
-                    if (response.ok) {
-                        showAlert(contactAlert, 'success', 'Thank you! Your message has been sent successfully. We\'ll get back to you soon.');
-                        contactForm.reset();
-                    } else {
-                        throw new Error('Form submission failed');
-                    }
-                } catch (error) {
-                    showAlert(contactAlert, 'error', 'Oops! Something went wrong. Please try again or email us directly at sruthivasudev@gmail.com');
-                } finally {
-                    contactSubmit.disabled = false;
-                    contactSubmit.innerHTML = 'Send Message';
-                }
-            });
-        }
-
-        // Career Form Submission
-        const careerForm = document.getElementById('careerForm');
-        const careerAlert = document.getElementById('careerAlert');
-        const careerSubmit = document.getElementById('careerSubmit');
-
-        if (careerForm) {
-            careerForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-
-                careerSubmit.disabled = true;
-                careerSubmit.innerHTML = '<span class="loading"></span> Submitting...';
-
-                const formData = new FormData(careerForm);
-
-                try {
-                    const response = await fetch('https://getform.io/f/YOUR_CAREER_FORM_ID', {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-
-                    if (response.ok) {
-                        showAlert(careerAlert, 'success', 'Application submitted successfully! We\'ll review your application and get back to you soon.');
-                        careerForm.reset();
-                        fileNameDisplay.textContent = '';
-                    } else {
-                        throw new Error('Form submission failed');
-                    }
-                } catch (error) {
-                    showAlert(careerAlert, 'error', 'Oops! Something went wrong. Please try again or email your resume to sruthivasudev@gmail.com');
-                } finally {
-                    careerSubmit.disabled = false;
-                    careerSubmit.innerHTML = 'Submit Application';
-                }
-            });
-        }
-
-        // Alert function
-        function showAlert(element, type, message) {
-            element.className = `alert alert-${type} show`;
-            element.textContent = message;
-
-            setTimeout(() => {
-                element.classList.remove('show');
-            }, 5000);
-        }
-
-        // Animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.product-card, .job-card, .contact-item, .feature-item, .testimonial-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'all 0.6s ease-out';
-            observer.observe(el);
-        });
-
-</script>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  // Use IDs and classes from HTML above
-  const toggle = document.getElementById('mobileToggle');
-  const links = document.getElementById('headerLinks');
+    // Wait for the DOM to load
+document.addEventListener("DOMContentLoaded", function() {
+  const mobileToggle = document.getElementById("mobileToggle");
+  const headerLinks = document.getElementById("headerLinks");
 
-  // Hamburger menu toggle
-  toggle.addEventListener('click', function () {
-    links.classList.toggle('active');
-    toggle.classList.toggle('open');
-    document.body.classList.toggle('menu-open');
-    // Icon swap
-    if (toggle.classList.contains('open')) {
-      toggle.innerHTML = '<i class="fas fa-xmark"></i>';
-    } else {
-      toggle.innerHTML = '<i class="fas fa-bars"></i>';
-    }
-  });
-
-  // Close menu after clicking a link - do NOT prevent default
-  Array.from(links.querySelectorAll('a')).forEach(function(link){
-    link.addEventListener('click', function(){
-      if(window.innerWidth <= 768){
-        links.classList.remove('active');
-        toggle.classList.remove('open');
-        document.body.classList.remove('menu-open');
-        toggle.innerHTML = '<i class="fas fa-bars"></i>';
-      }
-      // Do not block link navigation!
-    });
+  // Add click event to toggle menu
+  mobileToggle.addEventListener("click", function() {
+    headerLinks.classList.toggle("active");
   });
 });
+
+
 </script>
 </body>
 </html>
