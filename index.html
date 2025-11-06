@@ -1519,33 +1519,383 @@
         border-radius: 30px;
     }
 }
+        body, html {
+    width: 100%;
+    overflow-x: hidden;
+}
 
+@media (max-width: 1024px) {
+    .container,
+    .footer-content,
+    .section-title,
+    section, .stats, .cta-section, .form-container,
+    .footer-section, .about-content, .jobs-grid, .products-grid, .features-grid, .testimonial-grid, .contact-grid {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        box-sizing: border-box;
+    }
+    .nav-container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    .section-title {
+        font-size: 2.2rem;
+    }
+}
+
+/* Tablet Screens */
+@media (max-width: 900px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .about-image {
+        min-height: 250px;
+        padding: 1rem;
+    }
+    .stats-grid,
+    .features-grid,
+    .products-grid,
+    .testimonial-grid,
+    .footer-content,
+    .contact-grid,
+    .jobs-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem !important;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .hero h1 {
+        font-size: 2.4rem;
+    }
+    .hero .tagline {
+        font-size: 1.25rem;
+    }
+}
+
+/* Full Mobile Screens */
+@media (max-width: 600px) {
+    .nav-container {
+        flex-direction: row;
+        padding: 0.7rem 0.7rem;
+        min-height: 60px;
+    }
+    nav {
+        min-height: 60px;
+    }
+    .mobile-toggle {
+        font-size: 2rem;
+        margin-right: 0.3rem;
+    }
+
+    /* Stack hero content */
+    .hero,
+    .quantum-hero {
+        flex-direction: column;
+        padding-top: 70px;
+        min-height: 85vh;
+        height: auto;
+    }
+    .hero-content {
+        padding: 1rem 0.4rem;
+    }
+    .hero h1 {
+        font-size: 1.35rem !important;
+        margin-bottom: 0.6rem;
+    }
+    .hero .tagline {
+        font-size: 1.1rem !important;
+        margin-bottom: 1.2rem;
+    }
+    .hero p {
+        font-size: 1rem !important;
+        margin-bottom: 1.1rem;
+    }
+    .cta-buttons .btn {
+        width: 100%;
+        padding: 1rem 0.4rem;
+        font-size: 0.98rem;
+    }
+
+    /* Cards and Grids */
+    .product-card, .feature-item, .testimonial-card, .job-card, .form-container,
+    .stats, .cta-section, .about-image {
+        padding: 1.2rem 0.7rem;
+        border-radius: 12px;
+    }
+    .products-grid, .features-grid, .testimonial-grid, .stats-grid,
+    .footer-content, .contact-grid, .jobs-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem !important;
+    }
+
+    .section-title {
+        font-size: 1.4rem !important;
+    }
+    .section-title::after {
+        width: 50px !important;
+        height: 3px !important;
+        margin-top: 3px;
+    }
+
+    /* Form Elements */
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 0.8rem 0.6rem;
+        font-size: 0.97rem;
+    }
+    .file-input-label {
+        font-size: 0.98rem;
+    }
+    .btn-submit {
+        font-size: 1rem;
+        padding: 0.8rem 0;
+    }
+
+    /* Footer */
+    footer {
+        padding: 2.5rem 0.8rem 0.5rem;
+    }
+    .footer-content {
+        gap: 0.5rem !important;
+    }
+    .footer-section h3 {
+        margin-bottom: 0.3rem;
+        font-size: 1.1rem;
+    }
+    .footer-bottom {
+        padding-top: 1.2rem;
+        font-size: 0.94rem;
+    }
+
+    /* Map */
+    .map-container iframe {
+        height: 200px !important;
+    }
+}
+
+/* Hide all unnecessary paddings/margins on tiny screens */
+@media (max-width: 430px) {
+    .hero-content, .form-container, .about-image {
+        padding: 0.5rem 0 !important;
+    }
+    .section-subtitle {
+        font-size: 0.98rem !important;
+        margin-bottom: 1.2rem;
+    }
+    .btn, .btn-primary, .btn-secondary {
+        padding: 0.7rem 0.2rem !important;
+        font-size: 0.98rem;
+    }
+    .footer-bottom {
+        font-size: 0.9rem;
+    }
+}
+
+/* Fix nav menu and overlay for mobile */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column !important;
+        position: fixed;
+        left: -100%;
+        top: 60px;
+        background: rgba(0,0,0,0.97);
+        width: 100vw;
+        height: calc(100vh - 60px);
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 2rem 1rem 1rem 1.4rem;
+        transition: left 0.3s;
+        z-index: 9999;
+    }
+    .nav-links.active {
+        left: 0;
+    }
+}
+
+@media (max-width: 375px) {
+    .section-title {
+        font-size: 1rem !important;
+    }
+}
+
+
+@media (pointer:coarse) and (max-width:650px) {
+    input, textarea, select {
+        font-size: 16px !important;
+    }
+}
+.mobile-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+/* ... */
+
+@media (max-width: 768px) {
+  .mobile-toggle {
+    display: block;
+  }
+  .nav-links.active {
+    left: 0;
+  }
+}
+/* Header - Desktop Defaults */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  position: relative;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.logo-img {
+  height: 40px;
+  margin-right: 0.5rem;
+}
+.logo-text {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+.big-q {
+  font-size: 1.6em;
+  color: var(--primary, #a78bfa);
+}
+
+/* Hide mobile toggle on desktop */
+.mobile-toggle {
+  display: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+/* Horizontal nav for desktop */
+.header-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 1.8rem;
+  margin-left: 2rem;
+}
+.header-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+}
+.header-links li a:hover,
+.header-links li a:focus {
+  color: var(--primary, #a78bfa);
+}
+.header-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background: var(--primary, #a78bfa);
+  transition: width 0.3s;
+}
+.header-links li a:hover::after,
+.header-links li a:focus::after {
+  width: 100%;
+}
+
+/* --- MOBILE STYLES --- */
+@media (max-width: 768px) {
+  .header-container {
+    padding: 0.6rem 1rem;
+    min-height: 56px;
+  }
+  .logo-text {
+    font-size: 1rem;
+  }
+  .header-links {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    width: 75vw;
+    max-width: 300px;
+    height: 100vh;
+    background: #161932;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.5rem 1.2rem 1rem 1.2rem;
+    gap: 1.7rem;
+    box-shadow: 2px 0 15px rgba(0,0,0,0.12);
+    z-index: 10000;
+    transition: left 0.33s cubic-bezier(.77,.2,.05,1.0);
+  }
+  .header-links.active {
+    left: 0;
+  }
+  .mobile-toggle {
+    display: block;
+    z-index: 11000;
+  }
+  /* Dim background when menu open */
+  body.menu-open::before {
+    content:'';
+    position: fixed; left: 0; top: 0; right: 0; bottom: 0;
+    background: rgba(30,19,60,0.6);
+    z-index: 9000;
+  }
+}
+
+/* X icon styling (optional) */
+.mobile-toggle.open i {
+  color: var(--primary, #a78bfa);
+}
+
+@media (max-width: 450px) {
+  .header-links {
+    width: 100vw;
+    max-width: none;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .logo-text {
+    font-size: 0.9rem;
+  }
+}
 
     </style>
 </head>
 <body>
     <!-- Navigation -->
-   <header id="header">
-    <div class="header-container">
-        <div class="logo" onclick="navigatePage('index.html')">
-            <img src="images/quantumquill-.png" alt="QuantumQuill Logo" class="logo-img">
-            <span class="logo-text">
-    <span class="big-q">Q</span>uantum<span class="big-q">Q</span>uill
-</span>
-        </div>
-        <div class="mobile-toggle" id="mobileToggle">
-            <i class="fas fa-bars"></i>
-        </div>
-        <ul class="header-links" id="headerLinks">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="products.html">Services</a></li>
-            <li><a href="careers.html">Careers</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+  <header id="header">
+  <div class="header-container">
+    <div class="logo">
+      <img src="images/quantumquill-.png" alt="QuantumQuill Logo" class="logo-img">
+      <span class="logo-text"><span class="big-q">Q</span>uantum<span class="big-q">Q</span>uill</span>
     </div>
+    <div class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></div>
+    <ul class="header-links" id="headerLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="products.html">Services</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
 </header>
-
 
   <div class="page active" id="home">
   <section class="hero quantum-hero">
@@ -1704,425 +2054,6 @@
                 </div>
             </div>
         </section>
-    </div>
-
-    <!-- ABOUT PAGE -->
-    <div class="page" id="about">
-        <section class="page-hero">
-            <h1>About Us</h1>
-            <p>Building digital solutions that matter</p>
-        </section>
-
-        <section>
-            <div class="container">
-                <div class="about-content">
-                    <div class="about-text">
-                        <h3>Our Story</h3>
-                        <p>We are a forward-thinking technology startup dedicated to creating innovative digital solutions that empower businesses to thrive in the modern digital landscape.</p>
-                        <p>Founded with a vision to architect digital trust, we combine cutting-edge technology with deep industry expertise to deliver products that transform how businesses operate.</p>
-                        <p>Our team of passionate developers, designers, and strategists work collaboratively to build solutions that are not just functional, but exceptional.</p>
-                    </div>
-                    <div class="about-image">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="alt-bg">
-            <div class="container">
-                <h2 class="section-title">Our Values</h2>
-                <div class="products-grid">
-                    <div class="product-card">
-                        <div class="product-icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <h3>Innovation</h3>
-                        <p>We constantly push boundaries and embrace new technologies to deliver cutting-edge solutions.</p>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3>Trust</h3>
-                        <p>Building lasting relationships through transparency, reliability, and unwavering commitment to quality.</p>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3>Collaboration</h3>
-                        <p>We believe in the power of teamwork and working closely with our clients to achieve success.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="container">
-                <h2 class="section-title">Our Team</h2>
-                <p class="section-subtitle">Talented professionals dedicated to excellence</p>
-                <div class="products-grid">
-                    <div class="product-card">
-                        <div class="product-icon">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        <h3>Sidharth</h3>
-                        <p>Founder & CEO - Visionary leader with 10+ years of tech industry experience</p>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-icon">
-                            <i class="fas fa-user-circle"></i>
-                        </div>
-                        <h3>Development Team</h3>
-                        <p>Expert developers skilled in modern technologies and best practices</p>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-icon">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <h3>Design Team</h3>
-                        <p>Creative designers crafting beautiful and intuitive user experiences</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- PRODUCTS PAGE -->
-    <div class="page" id="products">
-        <section class="page-hero">
-            <h1>Products & Solutions</h1>
-            <p>Comprehensive technology solutions for your business</p>
-        </section>
-
-        <section>
-            <div class="container">
-                <div class="about-content">
-                    <div class="about-text">
-                        <h3>Website Development</h3>
-                        <p>Create stunning, high-performance websites that captivate your audience and drive conversions. Our development approach combines beautiful design with robust functionality.</p>
-                        <ul style="color: var(--gray); line-height: 2;">
-                            <li>✓ Custom responsive design</li>
-                            <li>✓ SEO optimization</li>
-                            <li>✓ E-commerce integration</li>
-                            <li>✓ CMS implementation</li>
-                            <li>✓ Performance optimization</li>
-                        </ul>
-                    </div>
-                    <div class="about-image">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="alt-bg">
-            <div class="container">
-                <div class="about-content" style="direction: rtl;">
-                    <div class="about-text" style="direction: ltr;">
-                        <h3>Property Management System</h3>
-                        <p>Streamline your hospitality operations with our comprehensive PMS. Manage reservations, housekeeping, billing, and guest services from a single, intuitive platform.</p>
-                        <ul style="color: var(--gray); line-height: 2;">
-                            <li>✓ Front desk operations</li>
-                            <li>✓ Housekeeping management</li>
-                            <li>✓ Billing & invoicing</li>
-                            <li>✓ Guest profile management</li>
-                            <li>✓ Reporting & analytics</li>
-                        </ul>
-                    </div>
-                    <div class="about-image">
-                        <i class="fas fa-building"></i>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="container">
-                <div class="about-content">
-                    <div class="about-text">
-                        <h3>Channel Manager</h3>
-                        <p>Maximize your reach and revenue by connecting to multiple OTAs and distribution channels. Real-time synchronization ensures you never miss a booking or face overbooking issues.</p>
-                        <ul style="color: var(--gray); line-height: 2;">
-                            <li>✓ Multi-channel connectivity</li>
-                            <li>✓ Real-time inventory sync</li>
-                            <li>✓ Rate management</li>
-                            <li>✓ Availability control</li>
-                            <li>✓ Performance tracking</li>
-                        </ul>
-                    </div>
-                    <div class="about-image">
-                        <i class="fas fa-share-alt"></i>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="alt-bg">
-            <div class="container">
-                <div class="about-content" style="direction: rtl;">
-                    <div class="about-text" style="direction: ltr;">
-                        <h3>AI Solutions</h3>
-                        <p>Harness the power of artificial intelligence to automate workflows, predict trends, and make intelligent decisions that drive business growth.</p>
-                        <ul style="color: var(--gray); line-height: 2;">
-                            <li>✓ Machine learning models</li>
-                            <li>✓ Predictive analytics</li>
-                            <li>✓ Natural language processing</li>
-                            <li>✓ Computer vision</li>
-                            <li>✓ Intelligent automation</li>
-                        </ul>
-                    </div>
-                    <div class="about-image">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- CAREERS PAGE -->
-    <div class="page" id="careers">
-        <section class="page-hero">
-            <h1>Join Our Team</h1>
-            <p>Be part of something extraordinary</p>
-        </section>
-
-        <section>
-            <div class="container">
-                <h2 class="section-title">Why Work With Us</h2>
-                <p class="section-subtitle">Join a team of innovators and visionaries</p>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>Growth Opportunities</h4>
-                        <p>Continuous learning and career development in a fast-paced environment</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <h4>Great Culture</h4>
-                        <p>Collaborative, inclusive, and supportive work environment</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <h4>Competitive Benefits</h4>
-                        <p>Competitive salary, health benefits, and flexible work arrangements</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="alt-bg">
-            <div class="container">
-                <h2 class="section-title">Open Positions</h2>
-                <div class="jobs-grid">
-                    <div class="job-card">
-                        <div class="job-header">
-                            <h3 class="job-title">Full Stack Developer</h3>
-                            <span class="job-type">Full-time</span>
-                        </div>
-                        <div class="job-details">
-                            <p><i class="fas fa-map-marker-alt"></i> Remote / Hybrid</p>
-                            <p><i class="fas fa-briefcase"></i> 2-4 years experience</p>
-                        </div>
-                        <p>Build scalable web applications using modern technologies. Experience with React, Node.js, and cloud platforms preferred.</p>
-                    </div>
-
-                    <div class="job-card">
-                        <div class="job-header">
-                            <h3 class="job-title">UI/UX Designer</h3>
-                            <span class="job-type">Full-time</span>
-                        </div>
-                        <div class="job-details">
-                            <p><i class="fas fa-map-marker-alt"></i> Remote / Hybrid</p>
-                            <p><i class="fas fa-briefcase"></i> 1-3 years experience</p>
-                        </div>
-                        <p>Create beautiful, intuitive user experiences. Proficiency in Figma, Adobe XD, and understanding of modern design principles required.</p>
-                    </div>
-
-                    <div class="job-card">
-                        <div class="job-header">
-                            <h3 class="job-title">AI/ML Engineer</h3>
-                            <span class="job-type">Full-time</span>
-                        </div>
-                        <div class="job-details">
-                            <p><i class="fas fa-map-marker-alt"></i> Remote / Hybrid</p>
-                            <p><i class="fas fa-briefcase"></i> 3-5 years experience</p>
-                        </div>
-                        <p>Develop and deploy machine learning models. Experience with Python, TensorFlow/PyTorch, and cloud ML platforms essential.</p>
-                    </div>
-
-                    <div class="job-card">
-                        <div class="job-header">
-                            <h3 class="job-title">Product Manager</h3>
-                            <span class="job-type">Full-time</span>
-                        </div>
-                        <div class="job-details">
-                            <p><i class="fas fa-map-marker-alt"></i> Remote / Hybrid</p>
-                            <p><i class="fas fa-briefcase"></i> 3-5 years experience</p>
-                        </div>
-                        <p>Lead product strategy and development. Strong technical background and experience in SaaS products preferred.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="container">
-                <h2 class="section-title">Apply Now</h2>
-                <div class="form-container">
-                    <div id="careerAlert" class="alert"></div>
-                    <form id="careerForm">
-                        <div class="form-group">
-                            <label for="fullName">Full Name *</label>
-                            <input type="text" id="fullName" name="fullName" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="position">Position Applying For *</label>
-                            <select id="position" name="position" required>
-                                <option value="">Select a position</option>
-                                <option value="Full Stack Developer">Full Stack Developer</option>
-                                <option value="UI/UX Designer">UI/UX Designer</option>
-                                <option value="AI/ML Engineer">AI/ML Engineer</option>
-                                <option value="Product Manager">Product Manager</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="experience">Years of Experience *</label>
-                            <input type="number" id="experience" name="experience" min="0" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="linkedin">LinkedIn Profile</label>
-                            <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
-                        </div>
-                        <div class="form-group">
-                            <label for="portfolio">Portfolio/Website</label>
-                            <input type="url" id="portfolio" name="portfolio" placeholder="https://yourportfolio.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="coverLetter">Why do you want to join us? *</label>
-                            <textarea id="coverLetter" name="coverLetter" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Upload Resume (PDF, DOC, DOCX) *</label>
-                            <div class="file-input-wrapper">
-                                <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
-                                <label for="resume" class="file-input-label">
-                                    <i class="fas fa-cloud-upload-alt"></i> Click to upload your resume
-                                </label>
-                                <div class="file-name" id="fileName"></div>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn-submit" id="careerSubmit">
-                            Submit Application
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- CONTACT PAGE -->
-    <div class="page" id="contact">
-        <section class="page-hero">
-            <h1>Get in Touch</h1>
-            <p>Let's discuss how we can help your business grow</p>
-        </section>
-
-        <section>
-            <div class="container">
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Email Us</h4>
-                                <p>sruthivasudev@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Call Us</h4>
-                                <p>+91 (XXX) XXX-XXXX</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Visit Us</h4>
-                                <p>Kanayannur, Kerala, India</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Business Hours</h4>
-                                <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-container" style="padding: 2rem;">
-                        <div id="contactAlert" class="alert"></div>
-                        <form id="contactForm">
-                            <div class="form-group">
-                                <label for="contactName">Your Name *</label>
-                                <input type="text" id="contactName" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="contactEmail">Email Address *</label>
-                                <input type="email" id="contactEmail" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="contactPhone">Phone Number</label>
-                                <input type="tel" id="contactPhone" name="phone">
-                            </div>
-                            <div class="form-group">
-                                <label for="subject">Subject *</label>
-                                <input type="text" id="subject" name="subject" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message *</label>
-                                <textarea id="message" name="message" required></textarea>
-                            </div>
-                            <button type="submit" class="btn-submit" id="contactSubmit">
-                                Send Message
-                            </button>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125448.24319361936!2d76.26498!3d9.93152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0872694bb5c4e3%3A0x5c2f6b38b64f7c67!2sKochi%2C%20Kerala!5e0!3m2!1sen!2sin!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
-        </section>
-    </div>
-
     <!-- Footer -->
     <footer>
         <div class="footer-content">
@@ -2166,32 +2097,7 @@
 
     <script>
         // Mobile Navigation Toggle
-        const mobileToggle = document.getElementById('mobileToggle');
-        const navLinks = document.getElementById('navLinks');
-
-        mobileToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            const icon = mobileToggle.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
-
         // Navigation scroll effect
-        const navbar = document.getElementById('navbar');
-        let lastScroll = 0;
-
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-
-            if (currentScroll > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-
-            lastScroll = currentScroll;
-        });
-
         // File upload handling
         const resumeInput = document.getElementById('resume');
         const fileNameDisplay = document.getElementById('fileName');
@@ -2314,6 +2220,40 @@
             el.style.transition = 'all 0.6s ease-out';
             observer.observe(el);
         });
-    </script>
+
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // Use IDs and classes from HTML above
+  const toggle = document.getElementById('mobileToggle');
+  const links = document.getElementById('headerLinks');
+
+  // Hamburger menu toggle
+  toggle.addEventListener('click', function () {
+    links.classList.toggle('active');
+    toggle.classList.toggle('open');
+    document.body.classList.toggle('menu-open');
+    // Icon swap
+    if (toggle.classList.contains('open')) {
+      toggle.innerHTML = '<i class="fas fa-xmark"></i>';
+    } else {
+      toggle.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+  });
+
+  // Close menu after clicking a link - do NOT prevent default
+  Array.from(links.querySelectorAll('a')).forEach(function(link){
+    link.addEventListener('click', function(){
+      if(window.innerWidth <= 768){
+        links.classList.remove('active');
+        toggle.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        toggle.innerHTML = '<i class="fas fa-bars"></i>';
+      }
+      // Do not block link navigation!
+    });
+  });
+});
+</script>
 </body>
 </html>
